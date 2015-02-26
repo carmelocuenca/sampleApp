@@ -15,11 +15,15 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
-
+    browsers: ['PhantomJS'],
+    hostname:  process.env.IP,
+    port:  process.env.PORT,
+    runnerPort: 0,
+    
     plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
+            'karma-phantomjs-launcher',
             'karma-jasmine',
             'karma-junit-reporter'
             ],
@@ -28,6 +32,5 @@ module.exports = function(config){
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     }
-
   });
 };
